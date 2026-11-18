@@ -3,38 +3,99 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ofertas do Dia | Achados da Shopee e Mercado Livre</title>
-<meta name="description" content="Achados e ofertas selecionados da Shopee e do Mercado Livre.">
+<title>Ofertas do Dia | Achados da Shopee</title>
+<meta name="description" content="Achados e ofertas selecionados da Shopee: Natal, decoração e moda. Links de afiliado.">
+<meta property="og:title" content="Ofertas do Dia | Achados da Shopee">
+<meta property="og:description" content="Achados e ofertas selecionados: Natal, decoração e moda.">
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#faf6f1;color:#2b2320}
-.wrap{max-width:520px;margin:0 auto;padding:28px 18px 40px}
-h1{font-size:26px;margin:0 0 6px;text-align:center}
-.sub{text-align:center;color:#6b5d55;margin:0 0 26px;font-size:15px}
-h2{font-size:18px;margin:26px 0 12px}
-.card{background:#fff;border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,.07);overflow:hidden;margin-bottom:16px}
-.card img{width:100%;height:260px;object-fit:cover;display:block;background:#eee}
-.body{padding:14px 16px 18px}
-.name{font-weight:600;margin:0 0 4px}
-.price{color:#c2410c;font-weight:700;margin:0 0 12px}
-.btn{display:block;text-align:center;text-decoration:none;background:#ee4d2d;color:#fff;font-weight:700;padding:13px;border-radius:12px}
-.note{font-size:12px;color:#8a7b72;margin-top:30px;line-height:1.5;text-align:center}
+:root{--bg:#fbf7f2;--ink:#2a211d;--mute:#7a6b62;--brand:#e8452c;--brand2:#c2310f;--card:#fff;--line:#eadfd5}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:linear-gradient(135deg,#e8452c,#f58a3c);color:#fff;text-align:center;padding:34px 18px 54px}
+header h1{margin:0 0 6px;font-size:28px;letter-spacing:-.3px}
+header p{margin:0;opacity:.95;font-size:15px}
+.wrap{max-width:980px;margin:0 auto;padding:0 14px 40px}
+.tools{position:sticky;top:0;z-index:5;background:var(--bg);margin:-30px -14px 0;padding:14px 14px 10px;border-radius:18px 18px 0 0}
+.search{width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:14px;font-size:16px;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,.06);outline:none}
+.search:focus{border-color:var(--brand)}
+.row{display:flex;gap:8px;align-items:center;margin-top:10px}
+.chips{display:flex;gap:8px;overflow-x:auto;flex:1;padding-bottom:2px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1px solid var(--line);background:#fff;color:var(--ink);padding:8px 14px;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer}
+.chip.on{background:var(--brand);border-color:var(--brand);color:#fff}
+select{flex:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px;font-size:13px;color:var(--ink)}
+.count{color:var(--mute);font-size:13px;margin:12px 2px 10px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr);gap:16px}}
+.card{background:var(--card);border-radius:16px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.07);display:flex;flex-direction:column;position:relative}
+.card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:#eee}
+.off{position:absolute;top:8px;left:8px;background:#16a34a;color:#fff;font-size:12px;font-weight:700;padding:3px 8px;border-radius:8px}
+.info{padding:10px 12px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.cat{font-size:11px;font-weight:700;color:var(--brand2);text-transform:uppercase;letter-spacing:.5px}
+.name{font-size:14px;line-height:1.3;font-weight:600;margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.price{font-size:12px;color:var(--mute)}
+.price b{display:block;font-size:19px;color:var(--ink)}
+.btn{margin-top:auto;display:block;text-align:center;text-decoration:none;background:var(--brand);color:#fff;font-weight:700;padding:11px;border-radius:12px;font-size:14px}
+.btn:active{background:var(--brand2)}
+.empty{display:none;text-align:center;color:var(--mute);padding:40px 10px}
+.note{font-size:12px;color:var(--mute);margin-top:34px;line-height:1.55;text-align:center}
 </style>
 </head>
 <body>
-<div class="wrap">
+<header>
 <h1>Ofertas do Dia</h1>
-<p class="sub">Achados selecionados da Shopee e do Mercado Livre</p>
-<h2>Natal</h2>
-<div class="card">
-<img src="https://down-br.img.susercontent.com/file/br-11134207-820lu-mtwrce1t5zi943" alt="Árvore de Natal 150cm com 350 galhos" loading="lazy">
-<div class="body">
-<p class="name">Árvore de Natal 150cm, 350 galhos</p>
-<p class="price">a partir de R$ 79,90</p>
-<a class="btn" href="https://s.shopee.com.br/2qWF5Tebqc" target="_blank" rel="noopener sponsored">Ver na Shopee</a>
+<p>Achados selecionados da Shopee</p>
+</header>
+<div class="wrap">
+<div class="tools">
+<input id="q" class="search" type="search" placeholder="Buscar produto (ex: árvore, manta, caneca)" autocomplete="off">
+<div class="row">
+<div class="chips" id="chips"></div>
+<select id="sort" aria-label="Ordenar">
+<option value="rel">Destaques</option>
+<option value="asc">Menor preço</option>
+<option value="desc">Maior preço</option>
+<option value="off">Maior desconto</option>
+</select>
 </div>
 </div>
-<p class="note">Aviso: os links desta página são de afiliado. Se você comprar por eles, podemos receber uma comissão, sem custo extra para você. Os perfis que divulgam esta página são de personagens virtuais criadas com inteligência artificial. Preços e disponibilidade podem mudar, confira na loja.</p>
+<div class="count" id="count"></div>
+<div class="grid" id="grid"></div>
+<div class="empty" id="empty">Nenhum produto encontrado. Tente outra palavra.</div>
+<p class="note">Aviso: os links desta página são de afiliado. Se você comprar por eles, podemos receber uma comissão, sem custo extra para você. Os perfis que divulgam esta página são de personagens virtuais criadas com inteligência artificial. Preços e disponibilidade podem mudar a qualquer momento, confira na loja.</p>
 </div>
+<script>
+var P=[
+{n:"Árvore de Natal 150cm, 350 galhos pinheiro canadense",c:"Natal",p:79.90,o:27,i:"https://down-bs-br.img.susercontent.com/file/br-11134207-820lu-mtwrce1t5zi943",u:"https://s.shopee.com.br/2qWF5Tebqc"},
+{n:"Kit manta decorativa + 4 capas de almofada suede drapeada",c:"Natal",p:76.80,o:23,i:"https://down-bs-br.img.susercontent.com/br-11134207-820lh-mt9xjl3dqhhd81.webp",u:"https://s.shopee.com.br/W8KN0WXUq"},
+{n:"Cascata cortina 300 LEDs 3x3 metros, amarelo quente",c:"Decoração",p:35.00,o:46,i:"https://down-bs-br.img.susercontent.com/sg-11134201-8259p-mrlxh7mxu70g7e.webp",u:"https://s.shopee.com.br/8AXlV6pkXq"},
+{n:"Caneca de cerâmica natalina com alça, Papai Noel e boneco de neve",c:"Natal",p:39.90,o:15,i:"https://down-bs-br.img.susercontent.com/br-11134207-820li-mty8lghvvev705.webp",u:"https://s.shopee.com.br/3B95XvQNof"},
+{n:"Conjunto feminino cropped e shorts 2 peças, cintura alta",c:"Moda",p:52.00,o:20,i:"https://down-bs-br.img.susercontent.com/sg-11134201-825a7-mtzqmmot4z5s1d.webp",u:"https://s.shopee.com.br/114axwmF9E"},
+{n:"Conjunto feminino body tule + short alfaiataria, para festa",c:"Moda",p:61.99,o:0,i:"https://down-bs-br.img.susercontent.com/br-11134207-820lm-mt7dsc0m4tfr4e.webp",u:"https://s.shopee.com.br/LouAj1yqW"}
+];
+var cat="Todos",grid=document.getElementById("grid"),q=document.getElementById("q"),sortEl=document.getElementById("sort");
+var cats=["Todos"];P.forEach(function(x){if(cats.indexOf(x.c)<0)cats.push(x.c)});
+var chips=document.getElementById("chips");
+cats.forEach(function(c){var b=document.createElement("button");b.className="chip"+(c==="Todos"?" on":"");b.textContent=c;b.onclick=function(){cat=c;Array.prototype.forEach.call(chips.children,function(e){e.className="chip"+(e.textContent===c?" on":"")});render()};chips.appendChild(b)});
+function norm(s){return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"")}
+function brl(v){return "R$ "+v.toFixed(2).replace(".",",")}
+function render(){
+var t=norm(q.value.trim()),list=P.filter(function(x){return (cat==="Todos"||x.c===cat)&&(!t||norm(x.n+" "+x.c).indexOf(t)>=0)});
+var s=sortEl.value;
+if(s==="asc")list.sort(function(a,b){return a.p-b.p});
+if(s==="desc")list.sort(function(a,b){return b.p-a.p});
+if(s==="off")list.sort(function(a,b){return b.o-a.o});
+grid.innerHTML="";
+list.forEach(function(x){
+var d=document.createElement("div");d.className="card";
+d.innerHTML=(x.o?'<span class="off">-'+x.o+'%</span>':"")+'<img loading="lazy" alt="" src="'+x.i+'"><div class="info"><span class="cat">'+x.c+'</span><h3 class="name"></h3><div class="price">a partir de<b>'+brl(x.p)+'</b></div><a class="btn" target="_blank" rel="noopener sponsored" href="'+x.u+'">Ver na Shopee</a></div>';
+d.querySelector(".name").textContent=x.n;
+grid.appendChild(d)});
+document.getElementById("count").textContent=list.length+(list.length===1?" produto":" produtos");
+document.getElementById("empty").style.display=list.length?"none":"block"}
+q.addEventListener("input",render);sortEl.addEventListener("change",render);
+render();
+</script>
 </body>
 </html>
