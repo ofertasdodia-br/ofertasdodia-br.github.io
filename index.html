@@ -83,6 +83,7 @@ var cats=["Todos"];P.forEach(function(x){if(cats.indexOf(x.c)<0)cats.push(x.c)})
 var chips=document.getElementById("chips");
 cats.forEach(function(c){var b=document.createElement("button");b.className="chip"+(c==="Todos"?" on":"");b.textContent=c;b.onclick=function(){cat=c;Array.prototype.forEach.call(chips.children,function(e){e.className="chip"+(e.textContent===c?" on":"")});render()};chips.appendChild(b)});
 function norm(s){return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"")}
+function slug(s){return norm(s).replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,40)}
 function brl(v){return "R$ "+v.toFixed(2).replace(".",",")}
 function render(){
 var t=norm(q.value.trim()),list=P.filter(function(x){return (cat==="Todos"||x.c===cat)&&(!t||norm(x.n+" "+x.c).indexOf(t)>=0)});
@@ -93,7 +94,7 @@ if(s==="off")list.sort(function(a,b){return b.o-a.o});
 grid.innerHTML="";
 list.forEach(function(x){
 var d=document.createElement("div");d.className="card";
-d.innerHTML=(x.o?'<span class="off">-'+x.o+'%</span>':"")+'<img loading="lazy" alt="" src="'+x.i+'"><div class="info"><span class="cat">'+x.c+'</span><h3 class="name"></h3><div class="price">a partir de<b>'+brl(x.p)+'</b></div><a class="btn" target="_blank" rel="noopener sponsored" href="'+x.u+'">Ver na Shopee</a></div>';
+d.innerHTML=(x.o?'<span class="off">-'+x.o+'%</span>':"")+'<img loading="lazy" alt="" src="'+x.i+'"><div class="info"><span class="cat">'+x.c+'</span><h3 class="name"></h3><div class="price">a partir de<b>'+brl(x.p)+'</b></div><a class="btn" target="_blank" rel="noopener sponsored" data-goatcounter-click="clique/'+slug(x.n)+'" data-goatcounter-title="'+slug(x.n)+'" href="'+x.u+'">Ver na Shopee</a></div>';
 d.querySelector(".name").textContent=x.n;
 grid.appendChild(d)});
 document.getElementById("count").textContent=list.length+(list.length===1?" produto":" produtos");
@@ -101,5 +102,6 @@ document.getElementById("empty").style.display=list.length?"none":"block"}
 q.addEventListener("input",render);sortEl.addEventListener("change",render);
 render();
 </script>
+<script data-goatcounter="https://ofertasdodia.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
